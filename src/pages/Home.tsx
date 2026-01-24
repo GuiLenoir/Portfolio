@@ -16,12 +16,9 @@ export function Home() {
  const [lastStartIndex, setLastStartIndex] = useState<number>(0); 
 
   useEffect(() => {
-    const token = import.meta.env.VITE_GITHUB_TOKEN;
     const user = import.meta.env.VITE_GITHUB_USER || 'GuiLenoir';
     
-
-
-    fetchUserRepositories(user, token).then((data: Repository[] | null) => {
+    fetchUserRepositories(user).then((data: Repository[] | null) => {
       if (data && data.length > 0) {
         setRepos(data as Repository[]);
         setLastStartIndex(0); 

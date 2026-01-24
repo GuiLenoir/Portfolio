@@ -33,7 +33,7 @@ function decodeBase64Utf8(base64) {
 }
 
 
-export async function fetchRepoReadme(user, repoName, token) {
+export async function fetchRepoReadme(user, repoName) {
   const now = Date.now();
   const cached = readmeCache.get(repoName);
 
@@ -44,7 +44,6 @@ export async function fetchRepoReadme(user, repoName, token) {
   const headers = {
     Accept: "application/vnd.github+json",
   };
-  if (token) headers.Authorization = `token ${token}`;
 
   const response = await fetch(
     `https://api.github.com/repos/${user}/${repoName}/readme`,
@@ -64,7 +63,7 @@ export async function fetchRepoReadme(user, repoName, token) {
 }
 
 
-export async function fetchUserRepositories(user, token) {
+export async function fetchUserRepositories(user) {
   if (!user) {
     return [];
   }
@@ -79,7 +78,6 @@ export async function fetchUserRepositories(user, token) {
     const headers = {
       Accept: "application/vnd.github+json",
     };
-    if (token) headers.Authorization = `token ${token}`;
 
     const response = await fetch(
       `https://api.github.com/users/${user}/repos?per_page=100&sort=updated`,

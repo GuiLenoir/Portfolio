@@ -25,11 +25,9 @@ export async function fetchRepoInfo(repoUrl: string): Promise<GitHubRepoInfo | n
     return null;
   }
 
-  const token = (import.meta.env.VITE_GITHUB_TOKEN as string) || '';
   const headers: Record<string, string> = {
     Accept: 'application/vnd.github.mercy-preview+json',
   };
-  if (token) headers.Authorization = `token ${token}`;
 
   try {
     const apiUrl = `https://api.github.com/repos/${parsed.owner}/${parsed.repo}`;

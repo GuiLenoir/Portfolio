@@ -27,9 +27,7 @@ export function Repositorio() {
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (repo !== undefined) return; 
     const user = import.meta.env.VITE_GITHUB_USER || "GuiLenoir";
-    const token = import.meta.env.VITE_GITHUB_TOKEN;
-
-    fetchUserRepositories(user, token)
+    fetchUserRepositories(user)
       .then((list: Repository[]) => {
         const found = list.find(
           (r: Repository) =>
@@ -45,12 +43,11 @@ export function Repositorio() {
   if (!repo) return;
 
   const user = import.meta.env.VITE_GITHUB_USER || 'GuiLenoir';
-  const token = import.meta.env.VITE_GITHUB_TOKEN;
 
   const loadReadme = async () => {
     setLoadingReadme(true);
     try {
-      const text = await fetchRepoReadme(user, repo.name, token);
+      const text = await fetchRepoReadme(user, repo.name);
       setReadme(text);
     } catch {
       setReadme("");
