@@ -1,4 +1,4 @@
-const CACHE_TTL = 10 * 60 * 1000; // minutos pra cache
+const CACHE_TTL = 60 * 60 * 1000; // minutos pra cache (1 hora)
 const cache = new Map(); 
 const readmeCache = new Map(); 
 
