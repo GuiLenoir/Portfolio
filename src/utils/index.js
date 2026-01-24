@@ -2,9 +2,10 @@ const CACHE_TTL = 10 * 60 * 1000; // minutos pra cache
 const cache = new Map(); 
 const readmeCache = new Map(); 
 
-// Lista de repositórios a ignorar
+// Lista de repositórios a ignorar (não exibir no portfólio)
 const REPO_BLACKLIST = [
-  "paolalenoir-website"
+  "paolalenoir-website",
+  "Portfolio"
 ];
 
 /**
