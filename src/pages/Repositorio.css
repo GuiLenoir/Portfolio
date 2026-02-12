@@ -52,6 +52,8 @@
   padding: 3rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   animation: slideInUp 0.6s ease-out;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 :root[data-theme='dark'] .repo-detail {
@@ -190,6 +192,21 @@
   padding-bottom: 2rem;
   font-size: 1rem;   /* deixa o texto menor */
   line-height: 1.6;    /* aumenta o espaçamento vertical entre linhas */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.repo-readme img,
+.repo-readme video,
+.repo-readme iframe,
+.repo-readme table {
+  max-width: 100%;
+  height: auto;
+}
+
+.repo-readme pre {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 :root[data-theme='dark'] .repo-readme {
@@ -323,8 +340,12 @@
 }
 
 @media (max-width: 768px) {
+  .repositorio-container {
+    padding: 1.25rem;
+  }
+
   .repo-detail {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   .repo-readme h1 { font-size: 2rem; }
@@ -348,6 +369,13 @@
 }
 
 @media (max-width: 480px) {
+  .repositorio-container {
+    padding: 1rem;
+  }
+
+  .repo-detail {
+    padding: 1.2rem;
+  }
 
   .repo-readme h1 { font-size: 1.5rem; }
 
